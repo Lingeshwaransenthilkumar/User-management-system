@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/add_user.css">
+
+</head>
+<body>
+    <p class="indicator"><a href="/">Home</a> / Edit user</p>
+    {{#if alert}}
+    <div id="alert" class="alert">
+       <span class="close-btn" onclick="hideAlert()"><i class="fa-solid fa-x"></i></span>
+        {{alert}}
+     </div>
+     <button class="edit_btn"><a href="/">Home</a></button>
+     {{/if}}
+    <div class="form_body">
+    {{#each rows}}
+    <form action="/edituser/{{this.id}}" method="post">
+        <div class="names">
+            <input type="text" name="first_name" placeholder="First Name" value="{{this.first_name}}">
+            <input type="text" name="last_name" placeholder="Last Name" value="{{this.last_name}}">
+        </div>
+        <div class="info">
+            <input type="email" name="email" placeholder="Email Id" value="{{this.email}}">
+            <input type="number" name="phone" placeholder="Phone no" value="{{this.phone}}">
+        </div>
+        <div class="comments">
+            <textarea name="comments"  cols="30" rows="10" placeholder="comments">{{this.comments}}</textarea>
+        </div>
+
+        <button class="form_submit_btn" type="submit" >Submit</button>
+    </form>
+    {{/each}}
+    
+    </div>
+    <script>
+        function hideAlert() {
+  var alertBox = document.getElementById('alert');
+  alertBox.classList.add('hidden');
+}
+
+    </script>
+</body>
+</html>

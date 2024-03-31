@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head></head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User management system</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!--navbar-->
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+  </head>
+<body>
+       <header id="navbar">
+            <a href="#" class="logo"><i class="fa-solid fa-house"></i><span>Logo</span></a>
+            <ul class="navbar">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/adduser">Add User</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+
+            <form class="main" method="post" action="/" novalidate>
+                <input type="search" placeholder="Search" class="search__input" name="search">
+                <button class="search_btn" type="submit">Search</button>
+            </form>
+
+            </div>
+            <div class="fa fa-burger" id="menu-icon"></div>
+        </header>
+
+        <section>
+            <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.first_name}}</td>
+        <td>{{this.last_name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.phone}}</td>
+        <td>
+          <a href="/viewuser/{{this.id}}" style="--clr:#3498db;"><i class="fa-regular fa-eye"></i>&nbsp;View</a>
+          <a href="/edituser/{{this.id}}" style="--clr:#90EE90;"> <i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a>
+          <a href="/{{this.id}}" style="--clr:#FF7F7F;"><i class="fa-solid fa-trash"></i> &nbsp;Delete</a>
+        </td>
+      </tr>
+      {{/each}}
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</section>
+
+
+
+          
+    
+
+
+    <script>
+        // for mobile size animation
+        let menu=document.querySelector('#menu-icon');
+        let navbar=document.querySelector('.navbar');
+
+        menu.onclick=()=>{
+          menu.classList.toggle('fa-x');
+    
+          navbar.classList.toggle('open');
+        }
+
+         document.addEventListener('DOMContentLoaded', function () {
+      var navbar = document.getElementById('navbar');
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 0) {
+          navbar.style.backgroundColor = 'rgba(255,255,255,0.25)';
+          navbar.style.backdropFilter = 'blur(15px)';
+        } else {
+          navbar.style.backgroundColor = 'transparent';
+          navbar.style.backdropFilter = 'blur(0)';
+
+        }
+      });
+    });
+    </script>
+
+</body>
+</html>

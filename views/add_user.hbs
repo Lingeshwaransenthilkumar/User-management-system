@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/add_user.css">
+
+</head>
+<body>
+    <p class="indicator"><a href="/">Home</a> / New user</p>
+    {{#if alert}}
+    <div id="alert" class="alert">
+       <span class="close-btn" onclick="hideAlert()"><i class="fa-solid fa-x"></i></span>
+        {{alert}}
+     </div>
+     {{/if}}
+    <div class="form_body">
+    <form action="/adduser" method="post" >
+        <div class="names">
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+        </div>
+        <div class="info">
+            <input type="email" name="email" placeholder="Email Id">
+            <input type="number" name="phone" placeholder="Phone no">
+        </div>
+        <div class="comments">
+            <textarea name="comments" id="" cols="30" rows="10" placeholder="comments"></textarea>
+        </div>
+
+        <button class="form_submit_btn" type="submit" >Submit</button>
+    </form>
+
+    </div>
+    <script>
+        function hideAlert() {
+  var alertBox = document.getElementById('alert');
+  alertBox.classList.add('hidden');
+}
+
+    </script>
+</body>
+</html>

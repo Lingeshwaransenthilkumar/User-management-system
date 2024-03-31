@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/view_all.css">
+</head>
+<body>
+    <span><a href="/">Home</a>&nbsp;/ View all</span>
+    <div class="content">
+        {{#each rows}}
+        <div class="name"><label for="">
+             First_name : </label>
+            <p>{{this.first_name}}</p>
+        </div>
+        <div class="name"><label for="">
+             Last_name : </label>
+            <p>{{this.last_name}}</p>
+        </div>
+        <div class="email">
+            <label for="">Email id : </label>
+            <p>{{this.email}}</p>
+        </div>
+        <div class="phone">
+            <label for="">Phone no : </label>
+            <p>{{this.phone}}</p>
+    
+        </div>
+        <div class="comments">
+            <label for="">Comments : </label>
+            <p>{{this.comments}}</p>
+        </div>
+        <div class="status">{{this.status}}</div>
+    {{/each}}
+</div>
+    
+    
+</body>
+</html>
